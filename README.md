@@ -31,3 +31,4 @@
 ### 개발 내용 정리
 
 - codecov 도입
+- Action CI 도입
