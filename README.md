@@ -76,10 +76,15 @@ urllib3==2.0.2
 - Github Action과 연동된 Codecov 관련 스크린샷
 <img width="1042" alt="image" src="https://github.com/basicgrammer/simple-project3/assets/55322993/5cbb69dd-4e54-4588-b11d-79fff26ba1f7">
 
+--------
+
+### Postman 관련 정보
 - Publish doc 주소 
 - URL : https://www.postman.com/satellite-astronaut-70983143/workspace/my-workspace/collection/23508973-b49059fd-9048-4b41-bbf0-e344ddbb6d9b?action=share&creator=23508973
+
+
 --------
-## Docker 명령어
+### Docker 명령어
 
 ```shell
     # 해당 프로젝트에서는 docker-compose를 기반으로 개발했습니다.
@@ -104,7 +109,7 @@ urllib3==2.0.2
     $ docker-compose stop {container_name}
 ```
 
-#### pytest (테스트 코드)
+### pytest (테스트 코드)
 
 ```shell
     # 파일 위치 : /backend/pytest
