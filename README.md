@@ -1,57 +1,72 @@
 ## Simple Project 3 ##
 
-----
+--------
+### 개발 언어 및 환경
+- OS : Ubuntu 22.04.2 LTS
+- python : 3.8
+- Django : 2.2.24
+- Docker Engine : 23.0.3
+- Docker-compose : 2.13.0
+- Postgres 13.11
+--------
+### requirements.txt
+- 기존에 작성된 requirements.txt가 아닌 pip freeze 과정으로 생성된 정보입니다.
+- 테스트 시 라이브러리 설치에 오류가 발생하는 경우 참고해주세요.
 
-### 개발 시 필수 사항 
-
-- PEP8
-- Python 3.8
-- Django 2.2.24
-- requirements.txt or pyproject.toml
-- README.md 실행 방법 명시
-- API를 실행할 수 있는 Postman Export 결과 or API 테스트를 수행하는 테스트코드 작성
-
-### 개발 시 참고사항
-- SECRET_KEY 같은 비밀키 값은 프로젝트 내 포함할 것
-
-
-### 그외 추가 사항
-- 테스트 코드 작성
-    - pytest를 활용한 테스트 코드 작성
-    - 테스트 실행 방법을 README.md에 작성
-    - 커버리지 측정은 codecov를 권장
-
-- CI를 활용한 테스트 자동화 및 커버리지 결과 전송 (Github Action 권장)
-
-- Docker
-    - 하나의 컨테이너에 웹 서버 및 WSGI 애플리케이션이 실행되도록 Dockerfile 작성 또는 docker-compose.yml 작성
-
-
-
-### 개발 내용 정리
-
-- codecov 도입
-- Action CI 도입
-
-### Swagger
+```txt
+certifi==2023.5.7
+charset-normalizer==3.1.0
+codecov==2.1.13
+coreapi==2.3.3
+coreschema==0.0.4
+coverage==7.2.6
+Django==2.2.24
+djangorestframework==3.13.1
+drf-writable-nested==0.7.0
+drf-yasg==1.20.0
+exceptiongroup==1.1.1
+execnet==1.9.0
+idna==3.4
+inflection==0.5.1
+iniconfig==2.0.0
+itypes==1.2.0
+Jinja2==3.1.2
+MarkupSafe==2.1.2
+packaging==23.1
+pluggy==1.0.0
+psycopg2-binary==2.9.6
+pytest==7.3.1
+pytest-cov==4.0.0
+pytest-django==4.5.2
+pytest-xdist==3.3.1
+pytz==2023.3
+requests==2.31.0
+ruamel.yaml==0.17.26
+ruamel.yaml.clib==0.2.7
+sqlparse==0.4.4
+tomli==2.0.1
+uritemplate==4.1.1
+urllib3==2.0.2
+```
+--------
+### Swagger && API Document
 
 ```shell
-
-    API Documentation 접속 ==> {URL}/doc/ # ex) 192.168.0.10/doc/
-    Swagger 접속 ==> {URL}/swagge/  # ex) 192.168.0.10/swagger/
-
+    API Document 접속 : {URL}/doc/ # ex) 192.168.0.10/doc/
+    Swagger 접속 : {URL}/swagge/  # ex) 192.168.0.10/swagger/
 ```
-
+--------
 
 ### Action CI 설정 참고 사항
-
 ```shell
     # Repository의 GitHub Action CI  설정 파일 위치
     # FileName = .github/workflows/action.yml
     DJANGO_SETTING_MODULE = project.core.pytest_settings  # 세팅에 변경이 필요한 경우 해당 파일을 변경해주세요.
     python_files = test_*.py  # 테스트를 위해 test_로 시작하는 파일은 모두 테스트를 수행합니다.
 ```
-
+- 개발 시 소스코드의 CI 및 테스트를 위한 Github Action 연동 관련 스크린샷
+<img width="1203" alt="image" src="https://github.com/basicgrammer/simple-project3/assets/55322993/d94fc542-de0c-4138-9e22-2f657ac9beb8">
+--------
 ### Codecov 관련 정보
 
 ```shell
@@ -59,15 +74,9 @@
     # 즉 Codecov에서 Public 레포와 연결되면서 코드 커버리지 업데이트시 Token 정보가 필요하지 않음
 ```
 
-- Github Action과 연결된 Codecov 결과
+- Github Action과 연동된 Codecov 관련 스크린샷
 <img width="1042" alt="image" src="https://github.com/basicgrammer/simple-project3/assets/55322993/5cbb69dd-4e54-4588-b11d-79fff26ba1f7">
-
-## 해야할 것
-
-- API 테스트 코드 마무리 처리  
-- PEP8 스타일 가이드 맞춤
-
-
+--------
 ## Docker 명령어
 
 ```shell
