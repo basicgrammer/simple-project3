@@ -6,7 +6,6 @@ from rest_framework.response import Response
 from django.views.decorators.csrf import csrf_exempt
 
 from platform_app.serializers import *
-from platform_app.Services import *
 from platform_app.models import *
 
 
@@ -58,7 +57,9 @@ class BasicViewSet(viewsets.ModelViewSet) :
         data = json.loads(request.body)
         queryset = Product.objects.filter(id = pk)
 
-        if queyset.exists() :
+        print(queryset)
+
+        if queryset.exists() :
 
             serializer_class = ProductSerializer(queryset[0], data = data, partial = True)
             serializer_class.is_valid(raise_exception = True)

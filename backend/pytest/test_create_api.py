@@ -3,51 +3,9 @@ import json
 
 from rest_framework.test import APIClient, APITestCase
 
-from component import ClientRequest
+from component import ClientRequest, created_data
 
-# class ClientRequest :
-
-#     def __init__(self, client) :
-#         self.client = client
-    
-#     def __call__(self, type, url, data=None) :
-#         content_type = "application/json"
-
-#         if type == "get" :
-
-#             res = self.client.get(
-#                 url,
-#                 content_type = content_type,
-#             )
-
-#         elif type == "post" :
-            
-#             res = self.client.post(
-#                 url,
-#                 json.dumps(data),
-#                 content_type = content_type
-#             )
-
-#         elif type == "patch" :
-
-#             res = self.client.patch(
-#                 url,
-#                 json.dumps(data),
-#                 content_type = content_type
-#             )
-
-#         else :
-
-#             pass
-
-# class CreateTestView(APITestCase) :
-
-#     def setUp(self) :
-
-#         self.client = APIClient()
-#         self.c = ClientRequest(self.client)
-
-class RetrieveTestView(APITestCase) :
+class CreatedTestView(APITestCase) :
 
     def setUp(self) :
 
@@ -58,36 +16,9 @@ class RetrieveTestView(APITestCase) :
 
         url = "/shop/products/"
 
-        data = {
-            "name": "TestProduct",
-            "option_set": [
-                {
-                    "name": "TestOption1",
-                    "price": 1000
-                },
-                {
-                    "name": "TestOption2",
-                    "price": 500
-                },
-                {
-                    "name": "TestOption3",
-                    "price": 0
-                }
-            ],
-            "tag_set": [
-                {
-                    "pk": 1,
-                    "name": "ExistTag"
-                },
-                {
-                    "name": "NewTag"
-                }
-            ]
-        }
-
         res = self.client.post(
             url, 
-            data = json.dumps(data),
+            data = json.dumps(created_data),
             content_type = "application/json"
         )
 

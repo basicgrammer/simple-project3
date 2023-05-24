@@ -35,3 +35,64 @@ class ClientRequest :
         else :
 
             pass
+
+
+created_data = {
+                    "name": "TestProduct",
+                    "option_set": [
+                        {
+                            "name": "TestOption1",
+                            "price": 1000
+                        },
+                        {
+                            "name": "TestOption2",
+                            "price": 500
+                        },
+                        {
+                            "name": "TestOption3",
+                            "price": 0
+                        }
+                    ],
+                    "tag_set": [
+                        {
+                            "pk": 1,
+                            "name": "ExistTag"
+                        },
+                        {
+                            "name": "NewTag"
+                        }
+                    ]
+                }
+
+
+updated_data = {
+                    "pk": 1,
+                    "name": "TestProduct",
+                    "option_set": [
+                        {
+                            "pk": 1,
+                            "name": "TestOption1",
+                            "price": 1000
+                        },
+                        {
+                            "pk": 2,
+                            "name": "Edit TestOption2",
+                            "price": 1500
+                        },
+                        {
+                            "name": "Edit New Option",
+                            "price": 300
+                        }
+                    ],
+                    "tag_set": [
+                        {
+                            "name": "ExistTag2"
+                        },
+                        {
+                            "name": "NewTag2"
+                        },
+                        {
+                            "name": "Edit New Tag2"
+                        }
+                    ]
+                }
