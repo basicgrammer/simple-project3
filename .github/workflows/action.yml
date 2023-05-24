@@ -47,10 +47,12 @@ jobs: # Workflow 세부 작업 설정
     #   run: |
       
     #     docker-compose up --build
-
         
     - name: Run Tests
       run: |
 
         cd ./backend
-        pytest -svv pytest/
+        pytest --cov=./ pytest/
+
+    - name : Upload coverage reports to Codecov
+      uses: codecov/codecov-action@v3
