@@ -6,7 +6,7 @@ from rest_framework.test import APIClient, APITestCase
 from component import ClientRequest, created_data, updated_data
 
 
-class UpdateTestView(APITestCase) :
+class PatchTestView(APITestCase) :
 
     def setUp(self) :
 
@@ -22,13 +22,10 @@ class UpdateTestView(APITestCase) :
             data = json.dumps(created_data),
             content_type = "application/json"
         )
-        
-        print(res.data['pk'])
+
         assert res.status_code == 201
-
-        url = "/shop/products/" + str(res.data['pk']) + "/"
-
-    
+        
+        url = "/shop/products/" + str(res.data['pk']) + "/"  # 테스트를 위해 설정
 
         combine_data = updated_data
         combine_data["pk"] = res.data["pk"]
@@ -40,5 +37,4 @@ class UpdateTestView(APITestCase) :
             content_type = "application/json"
         )
 
-        print(res.data)
         assert res.status_code == 200

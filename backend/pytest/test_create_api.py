@@ -23,19 +23,3 @@ class CreatedTestView(APITestCase) :
         )
 
         assert res.status_code == 201
-
-
-    # def test_get_success(self) :
-
-    #     url = "/shop/products/"
-
-
-    #     res = self.client.get(
-    #         url,
-    #         content_type = "application/json"
-    #     )
-        
-    #     print("---------------- Retrieve Test Result")
-    #     print(res.data)
-
-    #     assert res.status_code == 200
