@@ -55,8 +55,9 @@
 ### Codecov 참고 사항
 
 ```shell
-    # Codecov에 코드 커버리지 측정 결과 업로드 시, Public으로 설정된 GitHub의 Repository와 연결이 설정된 경우 
-    # Codecov에서 발급된 Token값은 따로 필요하지 않다.
+    # Codecov에 코드 커버리지 측정 결과 업로드 시, Public으로 설정된 GitHub의 Repository와 연결이 설정된 경우 Token값이 필요하지 않음
+    # 즉 Codecov에서 Public 레포와 연결되면서 코드 커버리지 업데이트시 Token 정보가 필요하지 않음
+    <img width="1042" alt="image" src="https://github.com/basicgrammer/simple-project3/assets/55322993/5cbb69dd-4e54-4588-b11d-79fff26ba1f7">
 ```
 
 ## 해야할 것
@@ -65,11 +66,10 @@
 - PEP8 스타일 가이드 맞춤
 
 
-## Docker 컨테이너 구동
+## Docker 명령어
 
 ```shell
-
-    # 해당 프로젝트에서는 docker-compose를 기반으로 구동합니다.
+    # 해당 프로젝트에서는 docker-compose를 기반으로 개발했습니다.
     # 컨테이너 구동 환경이 개발된 환경과 다를 수 있으므로 쉘 스크립트 기반이 아닌 구동 명령어를 아래 명시합니다.
 
     # 컨테이너 기동 상태 확인
@@ -83,5 +83,4 @@
 
     # 컨테이너 로그 확인 
     $ docker logs --tail 10000 -f {container_name}
-
 ```
