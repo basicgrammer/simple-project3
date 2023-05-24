@@ -52,13 +52,15 @@
     python_files = test_*.py  # 테스트를 위해 test_로 시작하는 파일은 모두 테스트를 수행합니다.
 ```
 
-### Codecov 참고 사항
+### Codecov 관련 정보
 
 ```shell
     # Codecov에 코드 커버리지 측정 결과 업로드 시, Public으로 설정된 GitHub의 Repository와 연결이 설정된 경우 Token값이 필요하지 않음
     # 즉 Codecov에서 Public 레포와 연결되면서 코드 커버리지 업데이트시 Token 정보가 필요하지 않음
-    <img width="1042" alt="image" src="https://github.com/basicgrammer/simple-project3/assets/55322993/5cbb69dd-4e54-4588-b11d-79fff26ba1f7">
 ```
+
+- Github Action과 연결된 Codecov 결과
+<img width="1042" alt="image" src="https://github.com/basicgrammer/simple-project3/assets/55322993/5cbb69dd-4e54-4588-b11d-79fff26ba1f7">
 
 ## 해야할 것
 
