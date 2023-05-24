@@ -16,6 +16,16 @@ jobs: # Workflow 세부 작업 설정
       matrix:
         python-version: [3.8, 3.8]
 
+    # services:
+    #   database:
+    #     image: postgres:13
+    #     env:
+    #       POSTGRES_USER: testuser
+    #       POSTGRES_PASSWORD: user123!
+    #       POSTGRES_DB: platform
+    #     ports:
+    #       - 5432:5432
+
     steps:
     - uses: actions/checkout@v3
     - name: Set up Python ${{ matrix.python-version }}
@@ -33,6 +43,6 @@ jobs: # Workflow 세부 작업 설정
         
     - name: Run Tests
       run: |
-
+        docker-compose up --build -d
         cd ./backend
         pytest -svv pytest/
