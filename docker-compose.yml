@@ -27,6 +27,11 @@ services:
                         - "80:80"
 
                 restart: always
+
+                networks:
+                  default_bridge:
+                    ipv4_address: 172.25.0.10
+
                         
                 depends_on:
                         - database
@@ -48,8 +53,6 @@ services:
                 ports:
                         - "5432:5432"
 
-                restart: always
-
                 environment:
                         - POSTGRES_DB=platform
                         - POSTGRES_USER=testuser
@@ -60,7 +63,17 @@ services:
                         - /etc/timezone:/etc/timezone:ro ## 호스트 OS와의 시간 동기화 
                         - ./init/:/docker-entrypoint-initdb.d/
                         - ./pgdata:/var/lib/postgresql/data
+
+                restart: always
+
+                networks:
+                  default_bridge:
+                    ipv4_address: 172.25.0.12
                 
 networks:
-        default:
-                name: sm3-priv-network
+  default_bridge:
+          name: sm3-priv-network
+          ipam:
+            driver: default
+            config:
+              - subnet: 172.25.0.0/16
