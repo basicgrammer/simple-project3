@@ -4,7 +4,7 @@
 ### 개발 언어 및 환경
 - OS : Ubuntu 22.04.2 LTS
 - python : 3.8
-- Django : 2.2.24
+- Django : 2.2.24 with DRF
 - Docker Engine : 23.0.3
 - Docker-compose : 2.13.0
 - Postgres 13.11
@@ -76,6 +76,9 @@ urllib3==2.0.2
 
 - Github Action과 연동된 Codecov 관련 스크린샷
 <img width="1042" alt="image" src="https://github.com/basicgrammer/simple-project3/assets/55322993/5cbb69dd-4e54-4588-b11d-79fff26ba1f7">
+
+- Publish doc 주소 
+- URL : https://www.postman.com/satellite-astronaut-70983143/workspace/my-workspace/collection/23508973-b49059fd-9048-4b41-bbf0-e344ddbb6d9b?action=share&creator=23508973
 --------
 ## Docker 명령어
 
@@ -94,4 +97,10 @@ urllib3==2.0.2
 
     # 컨테이너 로그 확인 
     $ docker logs --tail 10000 -f {container_name}
+
+    # 컨테이너 내부 접속
+    $ docker exec -it {container_name} /bin/bash
+
+    # 일부 컨테이너 정지
+    $ docker-compose stop {container_name}
 ```

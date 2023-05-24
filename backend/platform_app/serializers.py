@@ -2,7 +2,7 @@ from rest_framework import serializers
 from drf_writable_nested.serializers import WritableNestedModelSerializer
 from drf_writable_nested import UniqueFieldsMixin, NestedUpdateMixin
 
-from platform_app.models import *
+from platform_app.models import Tag, Product, ProductOption
 
 
 class TagSerializer(UniqueFieldsMixin, serializers.ModelSerializer) :

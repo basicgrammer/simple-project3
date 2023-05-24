@@ -32,7 +32,6 @@ class BasicViewSet(viewsets.ModelViewSet) :
     def retrieve(self, request, pk:int=None) -> "Res Code, Res Data(List)" :  # 조회를 위해 선언
 
         try : 
-
             if pk is not None :  # pk 값이 존재하는 경우 필터링된 정보만 반환
                 queryset = Product.objects.filter(id = pk)
                 serializer = ProductSerializer(queryset[0])
@@ -47,7 +46,7 @@ class BasicViewSet(viewsets.ModelViewSet) :
             message = {
                     "message" : "업데이트 할 수 있는 데이터가 없습니다."
             }
-
+            
             return Response(message, status = 200)
 
 
@@ -56,8 +55,6 @@ class BasicViewSet(viewsets.ModelViewSet) :
 
         data = json.loads(request.body)
         queryset = Product.objects.filter(id = pk)
-
-        print(queryset)
 
         if queryset.exists() :
 

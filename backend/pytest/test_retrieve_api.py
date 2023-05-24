@@ -1,5 +1,5 @@
-import pytest
 import json
+import pytest
 
 from rest_framework.test import APIClient, APITestCase
 
@@ -32,16 +32,3 @@ class RetrieveTestView(APITestCase) :
         )
 
         assert res.status_code == 200
-
-
-
-    # def test_get_success(self) :
-
-    #     url = "/shop/products/"
-
-    #     res = self.client.get(
-    #         url,
-    #         content_type = "application/json"
-    #     )
-
-    #     assert res.status_code == 200
