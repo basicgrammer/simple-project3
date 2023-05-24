@@ -41,7 +41,7 @@ jobs: # Workflow 세부 작업 설정
         pip install -r ./Dockerfiles/py3-lib/requirements.txt
 
     - name: Container Build & Container Start
-      rurn: |
+      run: |
       
         docker-compose up --build -d
 
