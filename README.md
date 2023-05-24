@@ -9,6 +9,10 @@
 - Docker-compose : 2.13.0
 - Postgres 13.11
 --------
+## Git Clone 시 참고 사항!!
+- 해당 레포의 데이터는 Clone 시 환경이 충족한다면 컨테이너 환경에서 바로 동작할 수 있도록 DB, 비밀키 등을 동봉해두었습니다.
+
+--------
 ### requirements.txt
 - 기존에 작성된 requirements.txt가 아닌 pip freeze 과정으로 생성된 정보입니다.
 - 테스트 시 라이브러리 설치에 오류가 발생하는 경우 참고해주세요.
