@@ -1,8 +1,12 @@
-import pytest, json
+import pytest
+import json
 
 from rest_framework.test import APIClient, APITestCase
 
+# from component import ClientRequest
+
 class ClientRequest :
+
     def __init__(self, client) :
         self.client = client
     
@@ -48,7 +52,7 @@ class RetrieveTestView(APITestCase) :
     def setUp(self) :
 
         self.client = APIClient()
-        self.c = ClientRequest(self.client)
+        self.c = component.ClientRequest(self.client)
 
     def test_post_api(self) -> "Res Code, JSON Data" :
 
@@ -87,10 +91,6 @@ class RetrieveTestView(APITestCase) :
             content_type = "application/json"
         )
 
-
-        print("--------------- Create Test Result")
-        print(res.data)
-        
         assert res.status_code == 201
 
 

@@ -32,3 +32,56 @@
 
 - codecov 도입
 - Action CI 도입
+
+### Swagger
+
+```shell
+
+    API Documentation 접속 ==> {URL}/doc/ # ex) 192.168.0.10/doc/
+    Swagger 접속 ==> {URL}/swagge/  # ex) 192.168.0.10/swagger/
+
+```
+
+
+### Action CI 설정 참고 사항
+
+```shell
+    # Repository의 GitHub Action CI  설정 파일 위치
+    # FileName = .github/workflows/action.yml
+    DJANGO_SETTING_MODULE = project.core.pytest_settings  # 세팅에 변경이 필요한 경우 해당 파일을 변경해주세요.
+    python_files = test_*.py  # 테스트를 위해 test_로 시작하는 파일은 모두 테스트를 수행합니다.
+```
+
+### Codecov 참고 사항
+
+```shell
+    # Codecov에 코드 커버리지 측정 결과 업로드 시, Public으로 설정된 GitHub의 Repository와 연결이 설정된 경우 
+    # Codecov에서 발급된 Token값은 따로 필요하지 않다.
+```
+
+## 해야할 것
+
+- API 테스트 코드 마무리 처리  
+- PEP8 스타일 가이드 맞춤
+
+
+## Docker 컨테이너 구동
+
+```shell
+
+    # 해당 프로젝트에서는 docker-compose를 기반으로 구동합니다.
+    # 컨테이너 구동 환경이 개발된 환경과 다를 수 있으므로 쉘 스크립트 기반이 아닌 구동 명령어를 아래 명시합니다.
+
+    # 컨테이너 기동 상태 확인
+    $ docker-compose ps -a
+
+    # 컨테이너 기동 종료
+    $ docker-compose down 
+
+    # 컨테이너 빌드 및 백그라운드 기동
+    $ docker-compose up --build -d
+
+    # 컨테이너 로그 확인 
+    $ docker logs --tail 10000 -f {container_name}
+
+```

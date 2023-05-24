@@ -1,21 +1,24 @@
 # CI 이름 설정
-name: CI Test With Action
+name: Acion-CI-simple-project3
 
 on: # Workflow가 실행되는 조건
   push:
     branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+
+  # pull_request:
+  #   branches: [ "main" ]
 
 jobs: # Workflow 세부 작업 설정
   build:
   
     runs-on: ubuntu-22.04
     strategy:
-      max-parallel: 2 ## 가용성에 따라 병렬로 실행되는 작업 수를 최대화함, 작업 전략 사용 시 동시에 실행할 수 있는 최대 작업 수를 설정하려면 matrix를 사용하면 됨.
+    ## 가용성에 따라 병렬로 실행되는 작업 수를 최대화함, 작업 전략 사용 시 동시에 실행할 수 있는 최대 작업 수를 설정하려면 matrix를 사용하면 됨.
+      max-parallel: 2 
       matrix:
         python-version: [3.8, 3.8]
 
+    ## pytest 시 API 테스트를 위해 Action 환경에서 테스트 마이그레이션 및 테스트 환경 구성을 위해 선언함
     services:
       database:
         image: postgres:13
@@ -42,12 +45,7 @@ jobs: # Workflow 세부 작업 설정
       run: |
 
         pip install --upgrade pip
-        pip install -r ./Dockerfiles/py3-lib/requirements.txt
-
-    # - name: Container Build & Container Start
-    #   run: |
-      
-    #     docker-compose up --build
+        pip install -r ./Dockerfiles/py3-lib/requirements.txt\
         
     - name: Run code test by pytest
       run: |
