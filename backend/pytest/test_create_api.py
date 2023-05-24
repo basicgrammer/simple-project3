@@ -3,42 +3,42 @@ import json
 
 from rest_framework.test import APIClient, APITestCase
 
-# from component import ClientRequest
+from component import ClientRequest
 
-class ClientRequest :
+# class ClientRequest :
 
-    def __init__(self, client) :
-        self.client = client
+#     def __init__(self, client) :
+#         self.client = client
     
-    def __call__(self, type, url, data=None) :
-        content_type = "application/json"
+#     def __call__(self, type, url, data=None) :
+#         content_type = "application/json"
 
-        if type == "get" :
+#         if type == "get" :
 
-            res = self.client.get(
-                url,
-                content_type = content_type,
-            )
+#             res = self.client.get(
+#                 url,
+#                 content_type = content_type,
+#             )
 
-        elif type == "post" :
+#         elif type == "post" :
             
-            res = self.client.post(
-                url,
-                json.dumps(data),
-                content_type = content_type
-            )
+#             res = self.client.post(
+#                 url,
+#                 json.dumps(data),
+#                 content_type = content_type
+#             )
 
-        elif type == "patch" :
+#         elif type == "patch" :
 
-            res = self.client.patch(
-                url,
-                json.dumps(data),
-                content_type = content_type
-            )
+#             res = self.client.patch(
+#                 url,
+#                 json.dumps(data),
+#                 content_type = content_type
+#             )
 
-        else :
+#         else :
 
-            pass
+#             pass
 
 # class CreateTestView(APITestCase) :
 
@@ -52,7 +52,7 @@ class RetrieveTestView(APITestCase) :
     def setUp(self) :
 
         self.client = APIClient()
-        self.c = component.ClientRequest(self.client)
+        self.c = ClientRequest(self.client)
 
     def test_post_api(self) -> "Res Code, JSON Data" :
 
