@@ -49,7 +49,7 @@ jobs: # Workflow 세부 작업 설정
       
     #     docker-compose up --build
         
-    - name: Run Tests
+    - name: Run code test by pytest
       run: |
 
         cd ./backend
