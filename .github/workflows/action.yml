@@ -52,7 +52,7 @@ jobs: # Workflow 세부 작업 설정
       run: |
 
         cd ./backend
-        pytest --cov= ./pytest --cov-report=xml
+        pytest --cov
 
     - name : Upload coverage reports to Codecov
       uses: codecov/codecov-action@v3
