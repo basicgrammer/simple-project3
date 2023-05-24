@@ -10,7 +10,8 @@
 - Postgres 13.11
 --------
 ## Git Clone 시 참고 사항!!
-- 해당 레포의 데이터는 Clone 시 환경이 충족한다면 컨테이너 환경에서 바로 동작할 수 있도록 DB, 비밀키 등을 동봉해두었습니다.
+- 해당 레포의 데이터는 Clone 시 환경이 충족한다면 컨테이너 환경에서 바로 동작할 수 있도록 비밀키 등을 동봉해두었습니다.
+- DB 데이터(pgdata)가 레포에 포함되었지만, 다른 환경에서 동작되는 부분에 대한 검증이 되지 않았기에, 기존 pgdata 폴더를 삭제하고 새로 DB를 구성하는 것을 추천합니다.
 
 --------
 ### requirements.txt
@@ -151,6 +152,15 @@ urllib3==2.0.2
 
     # 테스트 하면서 보편적으로 가장 많이 사용했었던 명령어
     $ pytest -svv
+```
 
+
+### 에러 핸들링
+
+```shell
+
+django.db.utils.OperationalError: connection to server at "172.25.0.12", port 5432 failed: No route to host
+        Is the server running on that host and accepting TCP/IP connections?
 
 ```
+- 위와 같은 에러가 발생하는 경우, 데이터베이스 관련 컨테이너가 구성되기 전에 연결을 시도했기에 발생하는 에러로, django 컨테이너를 재기동 하는 경우 해결할 수 있음
