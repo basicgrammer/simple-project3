@@ -46,7 +46,7 @@ class BasicViewSet(viewsets.ModelViewSet) :
             message = {
                     "message" : "업데이트 할 수 있는 데이터가 없습니다."
             }
-            
+
             return Response(message, status = 200)
 
 
@@ -74,6 +74,16 @@ class BasicViewSet(viewsets.ModelViewSet) :
             }
 
             return Response(message, status = 400)
+
+    @csrf_exempt
+    def destroy(self, request, pk:int=None):
+        response = {'message': '해당 기능은 활성화되지 않았습니다.'}
+        return Response(response, status=status.HTTP_403_FORBIDDEN)
+
+    @csrf_exempt
+    def update(self, request, pk:int=None):
+        response = {'message': '해당 기능은 활성화되지 않았습니다.'}
+        return Response(response, status=status.HTTP_403_FORBIDDEN)
 
 
 

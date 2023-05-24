@@ -61,8 +61,7 @@ urllib3==2.0.2
 ```shell
     # Repository의 GitHub Action CI  설정 파일 위치
     # FileName = .github/workflows/action.yml
-    DJANGO_SETTING_MODULE = project.core.pytest_settings  # 세팅에 변경이 필요한 경우 해당 파일을 변경해주세요.
-    python_files = test_*.py  # 테스트를 위해 test_로 시작하는 파일은 모두 테스트를 수행합니다.
+    
 ```
 - 개발 시 소스코드의 CI 및 테스트를 위한 Github Action 연동 관련 스크린샷
 <img width="1203" alt="image" src="https://github.com/basicgrammer/simple-project3/assets/55322993/d94fc542-de0c-4138-9e22-2f657ac9beb8">
@@ -103,4 +102,46 @@ urllib3==2.0.2
 
     # 일부 컨테이너 정지
     $ docker-compose stop {container_name}
+```
+
+#### pytest (테스트 코드)
+
+```shell
+    # 파일 위치 : /backend/pytest
+    # 테스트 참고 파일 위치 : /backend/pytest.ini
+```
+
+### pytest 테스트 실행 방법 
+
+```shell
+
+    # Action에서 테스트 되는 환경이 아니라면 pytest.ini의 맞춤형 설정 변경이 필요함
+    
+    # pytest.ini 파일
+    DJANGO_SETTING_MODULE = project_core.pytest_settings  # Github Action 버전
+    DJNAGO_SETTING_MODULE = project_core.settings # 도커 컨테이너 구동 버전
+    python_files = test_*.py  # 테스트를 위해 test_로 시작하는 파일은 모두 테스트를 수행합니다.
+
+    # 코드 커버리지 검사를 진행하는 명령어
+    $ pytest --cov
+
+    # 코드 커버리지 검사 및 Codecov 업로드를 위한 xml 파일 생성 명령어 (Action 환경에서 사용하는 명령어)
+    $ pytest --cov --cov-report=xml
+
+    # 테스트를 통해 코드 결함을 확인하는 명령어
+    $ python -m pytest {pytest_dir}  # ex) python -m pytest pytest
+
+    # 파일 하나만 테스트를 진행하는 경우
+    $ pytest {file_name}  # ex) pytest ./pytest/test_create_api.py
+    
+    # pytest.ini 설정이 되어있기 때문에 아래 명령어도 동작함
+    $ pytest -k  # 특정 테스트 함수만 실행
+    $ pytest -v  # 각 테스트 함수 실행 결과를 함께 출력
+    $ pytest -vv  # verbosity level을 높혀 더욱 자세한 테스트 결과를 출력
+    $ pytest -s  # Failed 작업에 대한 stdout, stderr 메시지 캡처
+
+    # 테스트 하면서 보편적으로 가장 많이 사용했었던 명령어
+    $ pytest -svv
+
+
 ```
